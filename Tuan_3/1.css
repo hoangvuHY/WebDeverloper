@@ -1,0 +1,215 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.infoWeb {
+  width: 19%;
+  color: #999999;
+  text-align: right;
+}
+
+.infoContact {
+  width: 70%;
+}
+
+div#bottom {
+  background: #9D2224;
+  padding: 20px;
+  color: white;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+}
+
+div#middle {
+  display: inline-block;
+}
+
+div#right {
+  width: 166px;
+  float: left;
+  padding-top: 35px;
+  padding-left: 21px;
+}
+
+div#right img {
+  border: 1px solid red;
+}
+
+div#center {
+  float: left;
+  margin-left: 13px;
+  width: 605px;
+  display: inline-block;
+  margin-top: 80px;
+  text-align: justify;
+}
+
+div#center h3 {
+  font-size: 24px;
+}
+
+div#center p {
+  font-size: 16px;
+  margin-top: 25px;
+}
+
+.imageLeft {
+  padding-top: 15px;
+}
+
+.imageLeft img {
+  display: block;
+  border: 1px solid red;
+  margin-top: 4px;
+}
+
+div#left {
+  margin-top: 54px;
+  float: left;
+}
+
+.toolBarDown p {
+  display: inline;
+}
+
+ul.menuDown, .toolBarDown {
+  background: #2F8D9A;
+  padding-left: 40px;
+  margin-top: 10px;
+  display: flex;
+  align-items: stretch;
+  position: relative;
+  box-sizing: border-box;
+}
+
+ul.menuDown span:nth-child(3) .toolBarDown {
+  padding: 0 100px;
+}
+
+ul.menuDown span:nth-child(2):hover .toolBarDown, ul.menuDown span:nth-child(3):hover .toolBarDown {
+  opacity: 1;
+  visibility: visible;
+}
+
+ul.menuDown span, .toolBarDown p {
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+ul.menuDown span:hover {
+  background: #CDCDCD;
+}
+
+#top img {
+  width: 980px;
+  height: 160px;
+}
+
+.container {
+  padding-left: 185px;
+  position: relative;
+  width: 980px;
+}
+
+.menuTop a.all span {
+  margin-left: 18px;
+  height: 83%;
+  display: inline-block;
+  padding-top: 5px;
+  width: 30px;
+  font-weight: 600;
+}
+
+.menuTop a.all .toolBar li span {
+  margin-left: 0;
+  padding: 0;
+  width: auto;
+}
+
+.menuTop a.all {
+  width: 66px;
+  height: 28px;
+  background: #1E7C9A;
+  position: fixed;
+  left: 10px;
+  top: 17px;
+  font-size: 15px;
+  text-decoration: none;
+  color: white;
+  box-sizing: border-box;
+  font-weight: 500;
+}
+
+.menuTop a.all span.temp:hover {
+  background: #2F8D9A;
+}
+
+ul.menuTop ul.toolBar, .toolBarMenu2 {
+  position: absolute;
+  background: #123CDF;
+  top: 22px;
+  left: 10px;
+  list-style: none;
+  width: 195px;
+  height: 70px;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.toolBarMenu2 {
+  background: #ABC123;
+  top: 23px;
+  left: 195px;
+}
+
+ul.toolBar li {
+  height: 18px;
+  border-bottom: 1px solid #1E6C8B;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  padding-top: 4px;
+  padding-left: 15px;
+}
+
+ul.toolBar li:nth-child(2):hover .toolBarMenu2, .menuTop .all span.temp:hover .toolBar {
+  opacity: 1;
+  visibility: visible;
+}
+
+.toolBarDown {
+  position: absolute;
+  background: #CDCDCD;
+  left: 0;
+  width: 100%;
+  margin-top: 7px;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.toolBarDown p:hover {
+  color: red;
+}
+
+/* End top */
+
+/* Left */
+
+#left a {
+  background: url("https://itest.com.vn/lects/webappdev/webpage/demo/images/bgmenu.gif") no-repeat;
+  width: 167px;
+  height: 43px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  padding-left: 5px;
+  color: #551A8B;
+  font-size: 16px;
+  margin-top: 3px;
+}
+
+#left a:hover {
+  color: #FF0000;
+}
