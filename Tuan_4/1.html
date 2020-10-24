@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form</title>
+  <link rel="stylesheet" href="./1.css">
+</head>
+
+<body>
+  <form id="form1">
+    <div>
+      <label for="name" class="title">Họ và tên:</label>
+      <input type="text" name="name" id="name" class="iName">
+      <span id="errorFullName"></span>
+      <br>
+    </div>
+    <div>
+      <label for="address" class="title">Địa chỉ:</label>
+      <input type="text" name="address" id="address" class="iAddress">
+      <span id="errorAddress"></span>
+      <br>
+    </div>
+    <div>
+      <label for="sex" class="title">Giới tính:</label>
+      <input type="radio" name="sex" value="sex" id="sex" class="iSex">Nam
+      <input type="radio" name="sex" value="sex" id="sex" class="iSex">Nữ
+      <span id="errorSex"></span>
+      <br>
+    </div>
+    <div>
+      <label for="birth" class="title">Ngày sinh:</label>
+      <input type="text" name="birth" id="birth" class="iBirth" placeholder="nn/tt/nnnn">
+      <span id="errorBirth"></span>
+      <br>
+    </div>
+    <div>
+      <label for="email" class="title">Email:</label>
+      <input type="email" name="email" id="email" class="iEmail">
+      <span id="errorEmail"></span>
+      <br>
+    </div>
+    <div>
+      <label for="phone" class="title">Điện thoại:</label>
+      <input onkeyup="javascript:enter(event,this,'english')" type="text" name="phone" id="phone" class="iPhone">
+      <span id="errorPhone"></span>
+      <br>
+    </div>
+    <div>
+      <label for="course" class="title">Khóa đăng ký:</label>
+      <input onkeyup="javascript:enter(event,this,'admin')" type="checkbox" name="course" value="course" id="english"
+        class="iCourse">Tiếng anh
+      <input onkeyup="javascript:enter(event,this,'it')" type="checkbox" name="course" value="course" id="admin"
+        class="iCourse">Quản trị
+      <input onkeyup="javascript:enter(event,this,'user')" type="checkbox" name="course" value="course" id="it"
+        class="iCourse">CTTT
+      <span id="errorCourse"></span>
+      <br>
+    </div>
+    <div>
+      <label for="user" class="title">Tên sử dụng:</label>
+      <input type="text" name="user" id="user" class="iUser">
+      <span id="errorUser"></span>
+      <br>
+    </div> 
+    
+    <div>
+      <label for="password" class="title">Mật khẩu:</label>
+      <input type="password" name="password" id="password" class="iPassword">
+      <span id="errorPassword"></span>
+      <br>
+    </div>
+    <div>
+      <label for="passwordAgain" class="title">Gõ lại mật khẩu:</label>
+      <input type="password" name="passwordAgain" id="passwordAgain" class="iPasswordAgain">
+      <span id="errorPasswordAgain"></span>
+      <br>
+    </div>
+    </div>
+    <div>
+      <label for="note" class="title">Ghi chú:</label>
+      <textarea name="note" id="note" class="iNote" cols="41" rows="2"></textarea>
+      <span id="errorNote"></span>
+      <br>
+    </div>
+    <div>
+      <label for="" class="title">
+      </label>
+      <input type="button" onclick="javascript:checkSubmit();" id="submit" value='Chấp nhận' />
+      <!-- <button class="skip">Bỏ qua</button> -->
+    </div>
+  </form>
+</body>
+<script type="text/javascript" src="./1.js"></script>
+
+</html>

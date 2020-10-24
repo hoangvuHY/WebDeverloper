@@ -1,0 +1,65 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+button.delete {
+  width: 50px;
+  height: 30px;
+  margin: 10px;
+  opacity:1 ;
+  cursor: pointer;
+  visibility: visibility;
+}
+
+table.table {
+  width: 400px;
+  border: 1px solid black;
+  margin-left: 10px;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+ 
+
+table.table tr {
+  cursor: pointer;
+}
+
+table.table tbody tr:hover {
+  background: green !important;
+}
+
+table.table tr th {
+  border: 1px solid;
+}
+
+table.table tr input {
+  margin-left: 5px;
+}
+
+table.table tr td {
+  border: 1px solid black;
+}
+
+table.table tr:nth-child(even) {
+  background-color: #F0F0F0;
+}
+
+table.table tr:nth-child(odd) {
+  background-color: #DFDFDF;
+}
+
+table.table thead tr {
+  background-color: #FC05A9 !important;
+}
+.yellows{
+  background-color: yellow !important;
+}
+
+table.table tbody .yellows:hover {
+    background: yellow !important; 
+}
+.nodisplay{
+  opacity: 0;
+  visibility: hidden;
+}

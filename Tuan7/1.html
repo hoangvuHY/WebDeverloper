@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./1.css">
+</head>
+
+
+<body>
+  <div class="container">
+    <button onclick="deletes()" class="delete nodisplay">Xóa</button>
+    <table class="table">
+      <thead>
+        <tr>
+          <td> <input onclick="onCheckAll( )" type="checkbox" name=" " id="checkAll"></td>
+          <th>Họ Tên</th>
+          <th>Ngày sinh</th>
+          <th>Giới tính</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class='checkTr' onclick="alls(this)">
+          <td><input class="checked" type="checkbox" name="check" id=""></td>
+          <td class="row">Hoàng Văn A</td>
+          <td>2/2/2002</td>
+          <td>Nam</td>
+        </tr>
+        <tr class='checkTr' onclick="alls(this)">
+          <td><input class="checked" type="checkbox" name="check" id=""></td>
+          <td class="row">Trần Thị B</td>
+          <td>1/1/2001</td>
+          <td> Nữ</td>
+        </tr>
+        <tr class='checkTr' onclick="alls(this)">
+          <td><input   class="checked" type="checkbox" name="check" id=""></td>
+          <td class="row"> Đào Xuân C</td>
+          <td>3/3/2003</td>
+          <td> Nam</td>
+        </tr>
+        <tr class='checkTr' onclick="alls(this)">
+          <td><input class="checked" type="checkbox" name="check" id=""></td>
+          <td class="row">Tống Minh D </td>
+          <td> 1/1/2002 </td>
+          <td>Nam </td>
+        </tr>
+        <tr class='checkTr' onclick="alls(this)">
+          <td><input class="checked" type="checkbox" name="check" id=""></td>
+          <td class="row">Nguyễn Trà E </td>
+          <td> 3/6/2002</td>
+          <td> Nữ </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="./1.js"></script>
+
+</body>
+
+</html>

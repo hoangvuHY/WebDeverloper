@@ -1,0 +1,59 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+form div span {
+    color: red;
+}
+
+form input[type=button] {
+    width: 85px;
+    height: 37px;
+    border: navajowhite;
+    background: #2196F3;
+    margin-top: 15px;
+    color: white;
+}
+
+form input[type=button]:hover {
+    border: none;
+    background: #0B7DDA;
+}
+
+
+form {
+    margin-top: 20px;
+}
+
+form div {
+    margin-bottom: 5px;
+    position: relative;
+}
+
+form div label.title {
+    width: 130px;
+    display: inline-block;
+    margin: 5px;
+    padding-left: 10px;
+    font-weight: 400;
+}
+
+form div input[type=text], form div input[type=password],form div input[type=email] {
+    width: 262px;
+    height: 27px;
+    border: 1px solid black;
+}
+
+form div input,form div textarea {background: #F1F1F1;padding-left: 5px;}
+
+form div textarea {
+    position: absolute;
+    margin-left: 3px;
+    padding-top: 5px;
+}
+form div input.iName,form div input.iBirth,form div input.iEmail,form div input.iUser {background: #00FFFF;}
+
+form div input:hover {
+    background: #E1E1E1;
+}
