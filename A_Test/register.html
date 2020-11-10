@@ -16,7 +16,7 @@
 <body>
   <div class="container">
     <!-- Material form register -->
-    <div class="col-md-10 col-sm-10 col-xs-8 card">
+    <div class="col-md-10 col-sm-4 col-xs-8 card">
       <h5 class="card-header info-color white-text text-center py-4">
         <strong>Sign up</strong>
       </h5>
@@ -32,7 +32,7 @@
               <!-- Full name -->
               <div class="md-form">
                 <label for="materialRegisterFormFullName">Full name</label>
-                <input id="fullName" type="text" id="materialRegisterFormFullName" class="form-control">
+                <input id="fullName" type="text" class="form-control">
                 <span id="errorFullName"></span>
               </div>
             </div>
@@ -40,7 +40,8 @@
               <!-- Identification-->
               <div class="md-form">
                 <label for="materialRegisterFormIdentification">Identification</label>
-                <input id="identification" type="number" id="materialRegisterFormIdentification" class="form-control">
+                <input id="identification" type="number" class="form-control">
+                <span id="errorIdentification"></span>
               </div>
             </div>
           </div>
@@ -48,58 +49,55 @@
           <!-- Address -->
           <div class="md-form">
             <label for="materialRegisterAddress">Address</label>
-            <input id="address" type="address" id="materialRegisterAddress" class="form-control"
-              aria-describedby="materialRegisterAddressHelpBlock">
-            <small id="materialRegisterAddressHelpBlock" class="form-text text-muted mb-4">
-              <!-- Optional - for two step authentication -->
+            <input id="address" type="address" class="form-control" aria-describedby="materialRegisterAddressHelpBlock">
+            <span id="errorAddress"></span>
             </small>
           </div>
 
           <!-- Phone number -->
           <div class="md-form">
             <label for="materialRegisterFormPhone">Phone number</label>
-            <input type="phone" id="materialRegisterFormPhone" class="form-control"
-              aria-describedby="materialRegisterFormPhoneHelpBlock">
-            <small id="materialRegisterFormPhoneHelpBlock" class="form-text text-muted mb-4">
-              <!-- Optional - for two step authentication -->
+            <input id="phone" type="phone" class="form-control" aria-describedby="materialRegisterFormPhoneHelpBlock">
+            <span id="errorPhone"></span>
+
+            <!-- Optional - for two step authentication -->
             </small>
           </div>
-
           <!-- E-mail -->
           <div class="md-form mt-0">
             <label for="materialRegisterFormEmail">E-mail</label>
-            <input type="email" id="materialRegisterFormEmail" class="form-control">
+            <input id="email" type="email" class="form-control">
+            <span id="errorEmail"></span>
           </div>
           <div class="form-row">
             <div class="col">
               <!-- Password -->
               <div class="md-form">
                 <label for="materialRegisterFormPassword">Password</label>
-                <input type="password" id="materialRegisterFormPassword" class="form-control"
+                <input id="password" type="password" class="form-control"
                   aria-describedby="materialRegisterFormPasswordHelpBlock">
-                <small id="materialRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
-                </small>
+                <span id="errorPassword"></span>
               </div>
             </div>
             <div class="col">
               <!-- Confirm Password -->
               <div class="md-form">
                 <label for="materialRegisterFormConfirmPassword">Confirm Password</label>
-                <input type="password" id="materialRegisterFormConfirmPassword" class="form-control"
+                <input id="confirmPassword" type="password" class="form-control"
                   aria-describedby="materialRegisterFormConfirmPasswordHelpBlock">
-                <small id="materialRegisterFormConfirmPasswordHelpBlock" class="form-text text-muted mb-4">
-                </small>
+                <span id="errorConfirmPassword"></span>
               </div>
             </div>
           </div>
           <div class="md-form">
             <label for="materialRegisterFormPhone">Role</label>
-
-            <select class="custom-select">
-              <option selected>Open this select menu</option>
-              <option value="1">Owner</option>
-              <option value="2">User</option>
+            <select id="role" class="custom-select">
+              <option disabled>Open this select menu</option>
+              <option value="1">User</option>
+              <option value="2">Owner</option>
             </select>
+            <span id="errorRole"></span>
+
           </div>
           <!-- Sign up button -->
           <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" type="submit">Sign
@@ -142,7 +140,7 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
-  <script src="login.js"></script>
+  <script src="register.js"></script>
 </body>
 
 </html>

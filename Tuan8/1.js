@@ -1,88 +1,173 @@
-function getHistory() {
-    return document.getElementById('history-value').innerText;
+const calculator = {
+  displayValue: '0',//the input of the user, it's how we keep track of what should be displayed on the screen
+  firstOperand: null,// store the first operand(toan hang dau tien). it's set to null
+  waitingForSecondOperand: false,//a way to check if both the first operand and operator have been inputted.  If it's true, the next number that the user enters will constitute(Nhap tiep) the second operand.
+
+  operator: null,//key will the operator for express(Bieu thuc). it's initial value set to null
 }
-// alert(getHistory()
-function printHistory(num) {
-    document.getElementById('history-value').innerText = num;
+function updateDisplay() {
+  // select the element with class of `calculator-screen`
+  const display = document.querySelector('.calculator-screen');
+  // update the value of the element with the contents of `displayValue`
+  display.value = calculator.displayValue;
 }
 
-function getOutput() {
-    return document.getElementById('output-value').innerText;
+updateDisplay();
+// calculator.displayValue = 33333;
+// updateDisplay();
+const keys = document.querySelector('.calculator-keys');
+keys.addEventListener('click', (event) => {
+  //Access the clicked element
+  // is equivalent to
+  // const target = event.target;
+  const { target } = event;
+  const { value } = target;
+  if (!target.matches('button')) {
+    console.log('wrong');
+    return;
+  }
 
-}
-// alert(printHistory('9999'))
-function printOutput(num) {
-    if (num == '') {
-        document.getElementById('output-value').innerText = num;
+  switch (value) {
 
-    } else {
-        document.getElementById('output-value').innerText = getFormatNumber(num);
+    case '-':
+      // calculator.operator = '-'
+      if (calculator.displayValue == '0') {
+        calculator.displayValue = '-';
+      } else {
+        handleOperator(value);
+      }
+      break;
+    case '+':
+    case '*':
+    case '/':
+    case '=':
+      if (calculator.displayValue == '-') {
+        calculator.displayValue = '0';
+      } else {
+        handleOperator(value);
+      }
+      break;
+    case '.':
+      inputDecimal(value);
+      break;
+    case 'all-clear':
+      resetCalculate();
+      break;
 
+    default:
+      if (Number.isInteger(parseFloat(value))) {
+        inputDigit(value);
+      }
+    // break;
+  }
+  /* 
+    if (target.classList.contains('operator')) {
+      console.log('operator: ', target.value);
+      handleOperator(target.value)
+      updateDisplay();
+      return;
     }
-
-}
-// printOutput(4444)
-function getFormatNumber(num) {
-
-    if (num == '-') {
-        return '';
+    if (target.classList.contains('decimal')) {
+      console.log('decimal: ', target.value);
+      inputDecimal(target.value);
+      updateDisplay();
+      return;
     }
-    var n = Number(num);
-    var value = n.toLocaleString('en'); // Chuyen ve so cua nuoc anh va tu lam tron
-    return value;
+    if (target.classList.contains('all-clear')) {
+      console.log('all-clear: ', target.value);
+      resetCalculate();
+      updateDisplay();
+      return;
+    }
+    console.log('digital: ', target.value);
+    inputDigit(target.value); */
+  updateDisplay();
+
+})
+
+function inputDigit(digit) {
+  const { displayValue, waitingForSecondOperand, operator } = calculator;
+  if (operator == '-') {
+    calculator.displayValue = operator + digit;
+    return;
+  }
+  if (waitingForSecondOperand) {
+    calculator.displayValue = digit;
+    calculator.waitingForSecondOperand = false;
+  }
+  else {
+    calculator.displayValue = displayValue == '0' ? digit : displayValue + digit;
+  }
+
+  /**
+   * if(=='0')
+   * calculator.displayValue = 0 
+   * else
+   * calculator.displayValue = gia tri do + them gia tri duoc nhap vao
+   */
 
 }
-// printOutput(7777777)
-function reverseNumber(num) {
-    return Number(num.replace(/,/g, ''));
+function inputDecimal(dot) {
+  if (calculator.waitingForSecondOperand) {
+    calculator.displayValue = '0.';
+    calculator.waitingForSecondOperand = false;
+    return;
+  }
+
+  if (!calculator.displayValue.includes(dot)) {
+    // neu k chua dau cham thi moi cong vao
+    calculator.displayValue += dot;
+  }
 }
 
-// alert(reverseNumber(getOutput()));
-var operator = document.getElementsByClassName('operator');
-for (let index = 0; index < operator.length; index++) {
-    operator[index].addEventListener('click', function() {
-        if (this.id == 'clear') {
-            printHistory('');
-            printOutput('');
-        } else if (this.id == 'backspace') {
-            var output = reverseNumber(getOutput()).toString();
-            if (output) {
-                //neu co so
-                output = output.substr(0, output.length - 1);
-                printOutput(output)
-            }
-        } else {
-            var output = getOutput();
-            var history = getHistory();
-            if (output == '' && history != '') {
-                if (isNaN(history[history.length - 1])) {
-                    history = history.substr(0, history.length - 1);
+//When a user hits(Nhan vao) an operator after entering the first operand
+function handleOperator(nextOperator) {
+  // Destructure(Pha huy. Thay doi cau truc) the properties on the calculator object
+  const { firstOperand, displayValue, operator } = calculator;
 
-                }
-            }
-            if (history != '' || output != "") {
-                output = output == '' ? output : reverseNumber(output);
-                history = history + output;
-                if (this.id == '=') {
-                    var result = eval(history);
-                    printOutput(result);
-                    printHistory('');
-                } else {
-                    history = history + this.id;
-                    printHistory(history);
-                    printOutput('')
-                }
-            }
-        }
-    })
+  //Neu muon thay doi cac toan tu
+  /**
+   * When two or more operators are entered consecutively
+   */
+
+  if (operator && calculator.waitingForSecondOperand) {
+    calculator.operator = nextOperator;
+    console.log(calculator.operator);
+    return;
+  }
+  // Toan tu duoc nhap vao va chuyen ve so thuc. Toan tu la la toan tu hien tai
+  const inputValue = parseFloat(displayValue);
+  //so dau tien da xong
+  if (firstOperand == null && !isNaN(inputValue)) {// bam vao cac operator
+    calculator.firstOperand = inputValue;
+  } else if (operator) { // Khi ma bam vao nut bang se chay dong nay
+    const result = calculate(firstOperand, inputValue, operator);
+    // calculator.displayValue = String(result);
+    calculator.displayValue = parseFloat(result.toFixed(7));
+    calculator.firstOperand = result;
+  }
+  //toan tu nhap
+  calculator.operator = nextOperator;
+  calculator.waitingForSecondOperand = true;
 }
-var number = document.getElementsByClassName('number');
-for (let index = 0; index < number.length; index++) {
-    number[index].addEventListener('click', function() {
-        var output = reverseNumber(getOutput());
-        if (output != NaN) {
-            output += this.id;
-            printOutput(output);
-        }
-    })
+//When the user hits an operator after entering the second operand
+function calculate(firstOperand, secondOperand, operator) {
+  if (operator === "+") {
+    return firstOperand + secondOperand;
+  } else if (operator === "-") {
+    return firstOperand - secondOperand;
+  } if (operator === "*") {
+    return firstOperand * secondOperand;
+  } if (operator === "/") {
+    return firstOperand / secondOperand;
+  }
+  return secondOperand;
+}
+
+
+function resetCalculate() {
+  calculator.displayValue = '0';
+  calculator.firstOperand = null;
+  calculator.operator = null;
+  calculator.waitingForSecondOperand = false;
 }

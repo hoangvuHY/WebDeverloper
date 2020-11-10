@@ -1,3 +1,0 @@
-- Fetch là mới hơn so với ajax
-- trong document có. document.onreadystatechange
--
